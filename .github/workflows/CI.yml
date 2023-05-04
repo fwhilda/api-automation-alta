@@ -3,6 +3,8 @@ name: API Automation JAVA + Maven
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -18,7 +20,7 @@ jobs:
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
   test:
-    name : Test API AUTOMATION
+    name : Test API AUTOMATION BRANCH
     needs: build
     runs-on: ubuntu-latest
     steps:
